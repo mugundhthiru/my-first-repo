@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mugundh — Virtual Reality on the Web</title>
+
+  <!-- A-Frame for the small demo -->
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#9d4edd;
+      --bg1:#0b0023;
+      --bg2:#4b0082;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Orbitron', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      color:#eae6ff;
+      background: linear-gradient(160deg, var(--bg1) 0%, var(--bg2) 70%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+    }
+
+    header{
+      padding:28px;
+      text-align:center;
+    }
+    .brand{
+      font-family:'Pacifico', cursive;
+      font-size:42px;
+      color:var(--accent);
+      margin-bottom:6px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    .subtitle{ color:#cfc3ff; opacity:0.95 }
+
+    @keyframes glow{
+      from { text-shadow: 0 0 10px #7b2cbf; }
+      to   { text-shadow: 0 0 30px #ff6fff; }
+    }
+
+    main{ padding:22px; max-width:980px; margin:0 auto 60px; }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:18px;
+      margin-bottom:18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+
+    h1{ margin:0 0 8px 0; font-size:26px; color:var(--accent) }
+    h2{ margin:8px 0; font-size:20px; color:var(--accent) }
+
+    p{ line-height:1.45; color:#e9e6ff; margin:8px 0; }
+    .small{ color:#cfc3ff; font-size:13px; }
+
+    .flex{ display:flex; gap:12px; flex-wrap:wrap; }
+    .img-wrap{ flex:1 1 46%; min-width:220px; }
+    img{ width:100%; border-radius:10px; display:block; }
+
+    ul.vocab{ margin:10px 0 0 18px; color:#efeaff; }
+    ul.vocab li{ margin:6px 0; }
+
+    /* demo */
+    .demo{ height:320px; border-radius:10px; overflow:hidden; margin-top:12px; }
+
+    iframe.video{ width:100%; height:360px; border-radius:10px; border:0; }
+
+    footer{ text-align:center; padding:24px; color:#d7c9ff; font-size:14px; }
+
+    /* small label badges */
+    .badge{ display:inline-block; background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; font-size:13px; margin-right:8px; color:#f0eaff; border:1px solid rgba(255,255,255,0.02) }
+
+    /* Easter egg cat */
+    #cat{ display:none; position:fixed; right:18px; bottom:18px; width:120px; border-radius:10px; box-shadow:0 8px 30px rgba(0,0,0,0.6) }
+
+    /* heading emoji animation */
+    h2.emoji::after { content: " 🚀"; animation: bounce 1.4s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Mugundh 🌌</div>
+    <div class="subtitle">Virtual Reality on the Web — VR/AR experiences delivered online</div>
+  </header>
+
+  <main>
+    <!-- Future plans -->
+    <section class="card">
+      <h1>My Future Plans 🎮</h1>
+      <p>Hi — I'm <strong>Mugundh</strong>. After high school I plan to study <strong>Virtual Reality (VR) and Computer Science</strong>. I want to build immersive web experiences (VR & AR) that are easy to access — a browser link instead of a big download. My goal is to combine interactivity, storytelling, and good design so people can explore virtual worlds from any device.</p>
+      <div class="small">Tip: press <strong>c</strong> to reveal a silly Easter egg 😺</div>
+    </section>
+
+    <!-- My topic / researched -->
+    <section class="card">
+      <h2 class="emoji">Researched Topic: Virtual Reality on the Web</h2>
+      <p><strong>Virtual Reality on the Web</strong> uses the <strong>WebXR API</strong> and 3D libraries (A-Frame, Three.js, Babylon.js) so immersive VR/AR scenes run right in browsers. This removes friction — users don't always have to install an app — and helps share experiences across devices (desktop, mobile, headset).</p>
+      <p>Uses include: online learning, virtual field trips, interactive exhibits, remote collaboration, and web games. WebXR makes these possible by connecting device inputs (headsets, controllers, or touch) with a 3D scene rendered in the browser.</p>
+    </section>
+
+    <!-- Unit 1 -->
+    <section class="card">
+      <h2 class="emoji">Unit 1 — Digital Basics (Binary, Pixels, Displays)</h2>
+      <p>Unit 1 taught me how computers represent information. Everything digital — text, images, sound — is stored in <strong>binary</strong> using bits (0 and 1). Images are built from tiny dots called <strong>pixels</strong>; more pixels = higher resolution. Displays turn those pixels into what we see on screens.</p>
+      <ul class="vocab">
+        <li><strong>Binary</strong> — base-2 numbers (0 and 1).</li>
+        <li><strong>Bit</strong> — smallest unit of data (0 or 1).</li>
+        <li><strong>Pixel</strong> — a single dot on a screen that makes up an image.</li>
+        <li><strong>Resolution</strong> — how many pixels an image or display has.</li>
+        <li><strong>Compression</strong> — making files smaller so they load faster.</li>
+      </ul>
+    </section>
+
+    <!-- Unit 2 -->
+    <section class="card">
+      <h2 class="emoji">Unit 2 — Coding & Websites (HTML, CSS)</h2>
+      <p>Unit 2 showed me how web pages are built with <strong>HTML</strong> (structure) and <strong>CSS</strong> (style). I learned tags, attributes, adding images, lists, and how CSS changes fonts, colors, and layout. This portfolio page is made with those ideas — HTML organizes content, CSS makes it look good.</p>
+      <ul class="vocab">
+        <li><strong>HTML</strong> — HyperText Markup Language, the skeleton of a web page.</li>
+        <li><strong>Tag</strong> — an HTML element like <code>&lt;p&gt;</code> or <code>&lt;img&gt;</code>.</li>
+        <li><strong>Attribute</strong> — extra info inside a tag (example: <code>src</code> on images).</li>
+        <li><strong>CSS</strong> — styles the page (colors, spacing, fonts).</li>
+        <li><strong>Responsive</strong> — design that adapts to screen sizes (phone, desktop).</li>
+      </ul>
+    </section>
+
+    <!-- Images (Unit 1 & Unit 2) -->
+    <section class="card">
+      <h2>Pictures (Unit 1 & Unit 2)</h2>
+      <div class="flex">
+        <figure class="img-wrap card" style="padding:12px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Oculus_Quest_2.jpg" alt="VR headset example">
+          <figcaption class="small">Unit 1 (display/pixels): VR headset — example of a device that renders pixels into immersive visuals.</figcaption>
+        </figure>
+
+        <figure class="img-wrap card" style="padding:12px;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5 logo">
+          <figcaption class="small">Unit 2 (coding/web): HTML5 logo — represents building websites with HTML & CSS.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Video -->
+    <section class="card">
+      <h2>Video: What is WebXR? (Intro)</h2>
+      <!-- If this video doesn't load, you can replace the ID after "embed/" with any YouTube video ID -->
+      <iframe class="video" src="https://www.youtube.com/embed/J4qZCLdPAbk" title="What is WebXR?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p class="small">This short clip explains the basics of WebXR and how it brings VR/AR into browsers.</p>
+    </section>
+
+    <!-- Tiny A-Frame demo (interactive on supported browsers) -->
+    <section class="card">
+      <h2>Try a tiny WebXR demo (Enter VR on supported devices)</h2>
+      <div class="demo">
+        <!-- A-Frame scene: spinning cube, floor, camera; click Enter VR if your browser supports it -->
+        <a-scene embedded renderer="antialias: true" vr-mode-ui="enabled: true" background="color: #0b0023">
+          <a-box position="0 1 -3" rotation="0 45 0" color="#7c4dff" animation="property: rotation; to: 0 405 0; loop: true; dur: 7000"></a-box>
+          <a-plane rotation="-90 0 0" width="10" height="10" color="#0a0620" position="0 0 -3"></a-plane>
+          <a-sky color="#020014"></a-sky>
+          <a-entity camera look-controls position="0 1.6 0"></a-entity>
+        </a-scene>
+      </div>
+      <p class="small">Tip: On a headset (or a supported mobile browser) click "Enter VR" in the scene to try the demo in headset mode. On desktop it shows the 3D scene.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="badge">Name: Mugundh</span>
+    <span class="badge">Topic: Virtual Reality on the Web</span>
+    <div style="margin-top:8px">© 2025 • Built with HTML, CSS, and a little VR magic ✨</div>
+  </footer>
+
+  <!-- hidden Easter egg -->
+  <img id="cat" src="https://placekitten.com/300/300" alt="secret cat" />
+
+  <script>
+    // Toggle cat easter egg with "c"
+    document.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'c') {
+        const cat = document.getElementById('cat');
+        cat.style.display = (cat.style.display === 'block') ? 'none' : 'block';
+      }
+    });
+  </script>
+</body>
+</html>
